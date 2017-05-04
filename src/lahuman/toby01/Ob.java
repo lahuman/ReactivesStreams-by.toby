@@ -53,6 +53,7 @@ public class Ob {
     
   }
 
+  // DATA method(void) <----> method(DATA)
   public static void main(String[] args) {
     Observer ob = new Observer(){
       @Override

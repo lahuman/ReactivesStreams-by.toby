@@ -54,7 +54,8 @@ public class PubSub {
 
     Subscriber<Integer> s = new Subscriber<Integer>() {
       Subscription subscription;
-      int bufferSize = 1;
+      final int SIZE = 2; 
+      int bufferSize = SIZE;
       @Override
       public void onComplete() {
         System.out.println("onComplete");
@@ -69,8 +70,8 @@ public class PubSub {
       public void onNext(Integer item) {
         System.out.println(Thread.currentThread().getName() + " onNext " + item);
         if(--bufferSize <=0 ){
-          bufferSize = 1;
-          this.subscription.request(1);
+          bufferSize = SIZE;
+          this.subscription.request(SIZE);
         }
       }
 
@@ -78,13 +79,13 @@ public class PubSub {
       public void onSubscribe(Subscription subscription) {
         System.out.println("onSubscription");
         this.subscription =  subscription;
-        this.subscription.request(1);
+        this.subscription.request(SIZE);
       }
     };
     
     p.subscribe(s);
     
-    es.awaitTermination(10, TimeUnit.HOURS);
+    es.awaitTermination(10, TimeUnit.SECONDS);
     es.shutdown();
   }
 }
