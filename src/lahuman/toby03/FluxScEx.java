@@ -1,4 +1,4 @@
-package toby03;
+package lahuman.toby03;
 
 import java.time.Duration;
 
