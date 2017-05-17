@@ -1,0 +1,1 @@
+[토비의 봄 TV 10회 스프링 리액티브 프로그래밍 (6) AsyncRestTemplate의 콜백 헬과 중복 작업 문제](https://www.youtube.com/watch?v=Tb43EyWTSlQ)
